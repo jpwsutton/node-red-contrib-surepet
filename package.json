@@ -1,0 +1,25 @@
+{
+  "name": "node-red-contrib-surepet",
+  "version": "0.0.1",
+  "description": "Node-RED nodes to interact with the Surepet API.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpwsutton/node-red-contrib-surepet.git"
+  },
+  "keywords": [
+    "Node-Red",
+    "Surepet"
+  ],
+  "author": "James Sutton",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jpwsutton/node-red-contrib-surepet/issues"
+  },
+  "homepage": "https://github.com/jpwsutton/node-red-contrib-surepet#readme",
+  "node-red" : {
+    "nodes": {
+        "surepet": "surepet.js",
+        "surepet-credentials": "surepet-credentials.js"
+    }
+}
+}

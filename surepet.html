@@ -1,0 +1,32 @@
+<script type="text/javascript">
+    RED.nodes.registerType("surepet", {
+        category: "function",
+        color: "#C0DEED",
+        defaults: {
+            name: {value: ""},
+            surepet: {value: "", type:"surepet-credentials"}
+        },
+        inputs: 1,
+        outputs: 1,
+        icon:  "font-awesome/fa-paw",
+        label: function(){
+            return this.name || "surepet";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="surepet">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-surepet"><i class="fa fa-key"></i> Surepet Credentials</label>
+        <input type="text" id="node-input-surepet">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="surepet">
+    <p>This node allows you to interact with the Surepet API.</p>
+
+</script>
