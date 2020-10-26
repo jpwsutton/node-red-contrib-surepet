@@ -30,3 +30,34 @@
     <p>This node allows you to interact with the Surepet API.</p>
 
 </script>
+
+
+
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('surepet-credentials', {
+        category: 'config',
+        defaults: { 
+        },
+        label: function(){
+            return this.username || 'New Surepet Login';
+        },
+        credentials: {
+            username: {type:"text"},
+            password: {type:"password"}
+        }
+    });
+    </script>
+    
+    <script type="text/html" data-template-name="surepet-credentials">
+        <div class="form-row">
+            <label for="node-config-input-username"><i class="fa fa-user-circle-o "></i> Username</label>
+            <input type="text" id="node-config-input-username">
+        </div>
+        <div class="form-row">
+            <label for="node-config-input-password"><i class="fa fa-key"></i> Password</label>
+            <input type="password" id="node-config-input-password">
+        </div>
+    
+    </script>

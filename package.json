@@ -16,10 +16,12 @@
     "url": "https://github.com/jpwsutton/node-red-contrib-surepet/issues"
   },
   "homepage": "https://github.com/jpwsutton/node-red-contrib-surepet#readme",
-  "node-red" : {
+  "node-red": {
     "nodes": {
-        "surepet": "surepet.js",
-        "surepet-credentials": "surepet-credentials.js"
+      "surepet": "surepet.js"
     }
-}
+  },
+  "dependencies": {
+    "sure-pet-care-client": "^0.0.7"
+  }
 }
