@@ -4,13 +4,34 @@
         color: "#C0DEED",
         defaults: {
             name: {value: ""},
-            surepet: {value: "", type:"surepet-credentials"}
+            surepet: {value: "", type:"surepet-credentials"},
+            mode: {value: 'list_pets'}
         },
         inputs: 1,
         outputs: 1,
         icon:  "font-awesome/fa-paw",
         label: function(){
             return this.name || "surepet";
+        },
+        oneditprepare: function(){
+            var node = this;
+
+            // Formatting for Pet ID Field
+            $("#node-input-petid").typedInput({
+                type:"num",
+                types:["num"],
+                typeField: "#node-input-petid-type"
+            });
+
+            if(this.mode === 'list_pets'){
+                $("#node-input-petid").hide();
+            } else {
+                $("node-input-petid").show();
+            }
+
+
+
+
         }
     });
 </script>
@@ -24,6 +45,21 @@
         <label for="node-input-surepet"><i class="fa fa-key"></i> Surepet Credentials</label>
         <input type="text" id="node-input-surepet">
     </div>
+    <div class="form-row">
+        <label for="node-input-mode"><i class="fa fa-info"></i> Mode</label>
+        <select id="node-input-mode">
+            <option value="get_status">Get Overall Status</option>
+            <option value="list_pets">List All Pets</option>
+            <!--<option value="get_pet">Get status of Pet</option>
+            <option value="mercedes">Set location of Pet</option>-->
+        </select>
+
+    </div>
+    <!--<div class="form-row" id="pet_id">
+        <label for="node-input-petid"><i class="fa fa-paw"></i> Pet ID</label>
+        <input type="text" id="node-input-petid">
+        <input type="hidden" id="node-input-petid-type">
+    </div>-->
 </script>
 
 <script type="text/html" data-help-name="surepet">
@@ -39,12 +75,12 @@
     RED.nodes.registerType('surepet-credentials', {
         category: 'config',
         defaults: { 
+            username: {value: "", type:"text"}
         },
         label: function(){
             return this.username || 'New Surepet Login';
         },
         credentials: {
-            username: {type:"text"},
             password: {type:"password"}
         }
     });

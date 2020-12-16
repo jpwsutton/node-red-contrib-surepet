@@ -6,13 +6,25 @@ module.exports = function(RED){
         RED.nodes.createNode(this, config);
         this.surepet = RED.nodes.getNode(config.surepet);
         var node = this;
+        //console.log(config);
         node.on('input', function(msg){
+
+            if(config.mode === 'list_pets'){
             this.surepet.client.getPets().then((pets) =>{
                 msg.payload = {
                     pets: pets
                 }
                 node.send(msg)
-            })/*
+            })
+        } else if(config.mode === "get_status"){
+            this.surepet.client.getState().then((state) => {
+                msg.payload = state;
+                node.send(msg);
+            })
+
+        }
+            
+            /*
             msg.payload = {
                 surepet: this.surepet,
                 pets: 
